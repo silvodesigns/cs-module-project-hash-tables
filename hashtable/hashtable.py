@@ -74,6 +74,7 @@ class HashTable:
         between within the storage capacity of the hash table.
         """
         # return self.fnv1(key) % self.capacity
+        # make sure is within the capacity of the Hash Table we mod it
         return self.djb2(key) % self.capacity
 
     def put(self, key, value):
@@ -98,6 +99,8 @@ class HashTable:
         """
         # Your code here
         h = self.djb2(key)
+        if h == None:
+            print("Value if already None")
         self.arr[h] = None
 
     def get(self, key):
